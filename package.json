@@ -1,0 +1,25 @@
+{
+  "name": "employeetracker",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/max-lin95/EmployeeTracker.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/max-lin95/EmployeeTracker/issues"
+  },
+  "homepage": "https://github.com/max-lin95/EmployeeTracker#readme",
+  "dependencies": {
+    "console.table": "^0.10.0",
+    "inquirer": "^9.1.3",
+    "mysql2": "^2.3.3"
+  }
+}
