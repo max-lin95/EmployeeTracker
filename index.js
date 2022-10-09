@@ -100,3 +100,25 @@ function viewAllEmployees() {
 }
 
 // addDepartment Function
+function addDepartment() {
+    inquirer.prompt([
+        {
+            name: "addDpt",
+            type: "input",
+            message: "What department would you like to add?",
+        }
+    ]).then(function(res) {
+        var query = connection.query("INSERT INTO department SET ?",
+            function(err, res) {
+                if (err) throw err
+                console.table(res);
+                promptStart();
+            }
+        )
+    })
+}
+
+// addRole function
+function addRole() {
+    connection.query("SELECT ")
+}
