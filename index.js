@@ -26,6 +26,7 @@ function promptStart() {
             message: "What would you like to do?",
             name: "choices",
             choies: [
+               "View all departments",
                "View all roles", 
                "View all employees",
                "Add a department",
@@ -36,6 +37,10 @@ function promptStart() {
         }
     ]).then(function(val) {
         switch(val.choice) {
+            case "View all departments?":
+                viewAllDepartments();
+                break;
+
             case "View all employee roles?":
                 viewAllRoles();
                 break;
@@ -62,4 +67,27 @@ function promptStart() {
         }
     })
 }
+
+// viewAllDepartments Function
+function viewAllDepartments() {
+    connection.query(
+        "SELECT department.id AS id, department.name AS department FROM department";
+        function(err, res) {
+            if (err) throw err
+            console.table(res)
+            promptStart()
+        });    
+}
+
+// viewAllRoles Function
+function viewAllRoles() {
+    connection.query("SELECT role.id, role.title, role.salary, department.name AS department FROM role INNER JOIN department ON role.department_id = department.id";
+        function(err, res) {
+            if (err) throw err
+            console.table(res)
+            promptStart()
+        });
+}
+
+// viewAllEmployees Function
 
