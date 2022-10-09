@@ -90,4 +90,13 @@ function viewAllRoles() {
 }
 
 // viewAllEmployees Function
+function viewAllEmployees() {
+    connection.query("SELECT employee.first_name, employee.last_name, role.title, role.salary, department.name AS department, CONCAT(manager.first_name, " ", manager.lastname) AS manager FROM employee JOIN role ON employee.role_id = role.role_idJOIN department ON role.department_id = department.role_idJOIN employee manager ON employee.manager_id = manager.id";
+        function(err, res) {
+            if (err) throw err
+            console.table(res)
+            promptStart()
+        });
+}
 
+// addDepartment Function
