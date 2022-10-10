@@ -148,3 +148,38 @@ function addRole() {
     );
 }
 
+// addEmployee Function
+function addEmployee() {
+    inquirer.prompt([
+        {
+            name: "firstName",
+            type: "input",
+            message: "What is the employee's first name?",
+        },
+        {
+            name: "lastName",
+            type: "input",
+            message: "What is the employee's last name?",
+        },
+        {
+            name: "employeesManager",
+            type: "list",
+            message: "Who is the employee's manager?",
+            choices: managers
+        }
+    ])
+        .then(managersChoices => {
+            const managers = managersChoices.managers;
+            params.push(manager);
+            connection.query("INSERT INTO employee (employee.first_name, employee.last_name, role.id, manager.id",
+                function(err, res) {
+                    if (err) throw err
+                    console.table(res);
+                    promptStart();
+            )  
+        });
+}
+
+
+
+
