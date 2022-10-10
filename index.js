@@ -120,5 +120,31 @@ function addDepartment() {
 
 // addRole function
 function addRole() {
-    connection.query("SELECT ")
+    connection.query("SELECT role.title AS title, role.salary AS salary FROM role",
+        inquirer.prompt{[
+            {
+                name: "title",
+                type: "input",
+                message: "What is the title of the role?"
+            },
+            {
+                name: "salary",
+                type: "input",
+                message: "What is this role's salary?",
+            }
+        ]}.then(function(res) {
+            connection.query("INSERT INTO role SET?",
+            {
+                title: res.title,
+                salary: res.salary,
+            },
+            function(err) {
+                if (err) throw err
+                console.table(res);
+                promptStart();
+            }
+            )
+        });
+    );
 }
+
