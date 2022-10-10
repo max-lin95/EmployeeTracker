@@ -62,7 +62,7 @@ function promptStart() {
                 break;
 
             case "Update an employee role?":
-                addEmployeeRole();
+                updateEmployeeRole();
                 break;
         }
     })
@@ -178,6 +178,12 @@ function addEmployee() {
                     promptStart();
             )  
         });
+}
+
+// updateEmployeeRole Function
+function updateEmployeeRole () {
+    const employeeSql = 
+
 }
 
 
