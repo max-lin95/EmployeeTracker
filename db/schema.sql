@@ -6,3 +6,7 @@ CREATE TABLE department (
     id INTEGER PRIMARY KEY AUTO_INCREMENT,
     name VARCHAR(30) NOT NULL
 );
+
+CREATE TABLE role (
+    id 
+)
